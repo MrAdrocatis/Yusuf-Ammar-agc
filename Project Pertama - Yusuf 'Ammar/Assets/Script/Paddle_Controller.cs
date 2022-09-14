@@ -42,4 +42,8 @@ public class Paddle_Controller : MonoBehaviour
     {
         rig.velocity = movement;
     }
+
+    
+
+
 }
