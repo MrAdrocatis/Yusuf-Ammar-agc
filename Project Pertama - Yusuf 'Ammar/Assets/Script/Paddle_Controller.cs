@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Paddle_Controller : MonoBehaviour
 {
-    public int speed;
+    public float speed;
     public KeyCode upKey;
     public KeyCode downKey;
+    
     private Rigidbody2D rig;
+   
+
+    
+
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -43,7 +49,13 @@ public class Paddle_Controller : MonoBehaviour
         rig.velocity = movement;
     }
 
-    
+    public void ActivatePUSpeedPaddle(float SpeedBoost)
+    {
+        speed = SpeedBoost;
+    }
 
-
+    public void DeactivatePUSpeedPaddle(float SpeedBoost)
+    {
+        speed = 8 ;
+    }
 }

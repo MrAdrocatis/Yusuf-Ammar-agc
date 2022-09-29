@@ -9,18 +9,20 @@ public class PowerAddLongPaddle : MonoBehaviour
     public Collider2D ball;
     public PowerUpManager manager;
     public float PULongPaddle;
+    public int WaitTime;
 
 
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision == ball)
+        if (collision.gameObject.CompareTag("Ball"))
         {
-            StartCoroutine(ScaleOnCertainTime(left_paddle));
+            if (LeftPaddle.Instance.GetIsTouch())
+                StartCoroutine(ScaleOnCertainTime(left_paddle));
+            else
+                StartCoroutine(ScaleOnCertainTime(right_paddle));
         }
-
-
     }
 
     private IEnumerator ScaleOnCertainTime(Transform paddle)
@@ -29,7 +31,7 @@ public class PowerAddLongPaddle : MonoBehaviour
 
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(WaitTime);
 
         ScaleDown(paddle);
         Destroy(gameObject);

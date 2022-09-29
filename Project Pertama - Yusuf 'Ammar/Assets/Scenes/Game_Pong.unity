@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnArea: {fileID: 1491013415}
-  Max_Power_Up_Amount: 6
+  Max_Power_Up_Amount: 3
   SpawnInterval: 1
   DelayTime: 9
   Power_Up_Area_Min: {x: -8, y: -4}
@@ -366,6 +366,8 @@ MonoBehaviour:
   - {fileID: 562584032}
   - {fileID: 725209198}
   - {fileID: 557633858}
+  leftPaddle: {fileID: 0}
+  rightPaddle: {fileID: 0}
 --- !u!4 &214483189
 Transform:
   m_ObjectHideFlags: 0
@@ -397,7 +399,7 @@ GameObject:
   - component: {fileID: 214943181}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -710,7 +712,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 214943181}
-  magnitude: 0
+  left_paddle: {fileID: 995452029}
+  right_paddle: {fileID: 1665851641}
+  SpeedBoost: 20
+  WaitTime: 5
   manager: {fileID: 214483188}
 --- !u!1 &562584032
 GameObject:
@@ -835,7 +840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 214943181}
-  magnitude: 1.1
+  magnitude: 1.2
   manager: {fileID: 214483188}
 --- !u!1 &600528796
 GameObject:
@@ -939,6 +944,7 @@ MonoBehaviour:
   ball: {fileID: 214943181}
   manager: {fileID: 214483188}
   PULongPaddle: 4
+  WaitTime: 5
 --- !u!212 &725209200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1310,6 +1316,7 @@ GameObject:
   - component: {fileID: 995452031}
   - component: {fileID: 995452030}
   - component: {fileID: 995452032}
+  - component: {fileID: 995452033}
   m_Layer: 0
   m_Name: Left Paddle
   m_TagString: Untagged
@@ -1444,6 +1451,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &995452033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995452027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0cd8ac1d7c1c748ab661cf60668ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1006789587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2019,7 @@ GameObject:
   - component: {fileID: 1665851643}
   - component: {fileID: 1665851642}
   - component: {fileID: 1665851644}
+  - component: {fileID: 1665851645}
   m_Layer: 0
   m_Name: Right Paddle
   m_TagString: Untagged
@@ -2134,6 +2154,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1665851645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665851639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22297ffff8efb36448c268beff08a082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2100451562
 GameObject:
   m_ObjectHideFlags: 0
